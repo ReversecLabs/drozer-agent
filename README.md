@@ -7,7 +7,7 @@ drozer allows you to search for security vulnerabilities in apps and devices by 
 
 drozer provides tools to help you use, share and understand public Android exploits. It helps you to deploy a drozer Agent to a device through exploitation or social engineering. Using weasel (MWR's advanced exploitation payload) drozer is able to maximise the permissions available to it by installing a full agent, injecting a limited agent into a running process, or connecting a reverse shell to act as a Remote Access Tool (RAT).
 
-drozer is open source software, maintained by WithSecure, and can be downloaded from [https://labs.withsecure.com/tools/drozer]
+drozer is open source software, maintained by Reversec. An introductory user guide can be found on [Reversec Labs](https://labs.reversec.com/tools/drozer/)
 
 
 Building Using Android Studio
@@ -39,4 +39,4 @@ drozer is Open Source software, made great by contributions from the community.
 
 For full source code, to report bugs, or to suggest features and contribute patches please see our Github project:
 
-[https://github.com/WithSecureLabs/drozer]
+[https://github.com/ReversecLabs/drozer]
