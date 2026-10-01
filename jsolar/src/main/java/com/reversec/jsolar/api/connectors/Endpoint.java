@@ -127,8 +127,8 @@ public class Endpoint extends Connector {
      */
     public TrustManager getTrustManager() {
         if(this.isSSL()) {
-            try {
-                return new KeyStoreTrustManager(new FileInputStream(this.getSSLTrustStorePath()), this.getSSLTrustStorePassword().toCharArray());
+            try (FileInputStream stream = new FileInputStream(this.getSSLTrustStorePath())) {
+                return new KeyStoreTrustManager(stream, this.getSSLTrustStorePassword().toCharArray());
             }
             catch(Exception e) {
                 Log.e("getTrustManager", e.getMessage());

@@ -53,7 +53,9 @@ public class Server extends Connector{
     public KeyManager[] getKeyManagers() throws CertificateException, FileNotFoundException, IOException, KeyStoreException, NoSuchAlgorithmException, UnrecoverableKeyException {
         if (this.keyManagers == null) {
             KeyStore keyStore = KeyStore.getInstance("BKS");
-            keyStore.load(new FileInputStream(this.keyStorePath), this.keyStorePassword);
+            try (FileInputStream stream = new FileInputStream(this.keyStorePath)) {
+                keyStore.load(stream, this.keyStorePassword);
+            }
 
             KeyManagerFactory keyManagerFactory = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
             keyManagerFactory.init(keyStore, this.keyPassword);

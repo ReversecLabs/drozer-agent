@@ -27,6 +27,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
     externalNativeBuild {
         cmake {
             path 'CMakeLists.txt'
@@ -62,6 +65,7 @@ android {
 }
 
 dependencies {
+    testImplementation 'junit:junit:4.13.2'
 
     implementation project(':tlslib')
     implementation 'com.google.protobuf:protobuf-java:3.21.10'

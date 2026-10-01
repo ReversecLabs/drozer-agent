@@ -72,8 +72,7 @@ public class SocketTransport extends Transport implements SecureTransport {
     @Override
     public void close() {
         try {
-            this.in.close();
-            this.out.close();
+            // Closing the socket also closes its streams, including after a failed handshake.
             this.socket.close();
         } catch (IOException e) {
             Log.e("SocketConnection", "IOException when closing socket: " + e.getMessage());

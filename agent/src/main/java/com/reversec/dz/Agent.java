@@ -92,15 +92,13 @@ public class Agent {
 	}
 
 	private void copyResourceToFile(int resId, FileOutputStream file) throws IOException {
-		InputStream in = this.context.getResources().openRawResource(resId);
-
-		byte[] buf = new byte[1024];
-
-		int len = in.read(buf);
-		while(len != -1) {
-			file.write(buf, 0, len);
-
-			len = in.read(buf);
+		try (FileOutputStream out = file;
+			 InputStream in = this.context.getResources().openRawResource(resId)) {
+			byte[] buf = new byte[1024];
+			int len;
+			while((len = in.read(buf)) != -1) {
+				out.write(buf, 0, len);
+			}
 		}
 	}
 
