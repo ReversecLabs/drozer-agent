@@ -129,6 +129,8 @@ public class ReflectionResponseFactory {
                 break;
 
             case CHAR:
+                primitive.setChar((Character)value);
+                break;
             case INT:
                 primitive.setInt((Integer)value);
                 break;
